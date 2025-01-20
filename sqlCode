@@ -17,3 +17,15 @@ email varchar(255) NOT NULL UNIQUE,
 newPassword varchar(255),
 resetID varchar(255),
 FOREIGN KEY (userID) REFERENCES users(userID));
+
+CREATE TABLE EventGroups(
+    groupID INT AUTO_INCREMENT PRIMARY KEY,
+    groupName VARCHAR(255) NOT NULL,
+    description TEXT,
+    GroupCalendarID INT,
+    userID INT,
+    hostID INT,
+    FOREIGN KEY (GroupCalendarID) REFERENCES GroupCalendar(GroupCalendarID),
+    FOREIGN KEY (userID) REFERENCES users(userID),
+    FOREIGN KEY (hostID) REFERENCES users(userID)
+);
