@@ -1,7 +1,7 @@
 USE bulletin;
 
 CREATE TABLE users(
-userID int NOT NULL PRIMARY KEY,
+userID int NOT NULL auto_increment,
 firstName varchar(255) NOT NULL,
 lastName varchar(255) NOT NULL,
 email varchar(255) NOT NULL UNIQUE,
@@ -9,7 +9,8 @@ phoneNumber varchar(255) UNIQUE,
 username varchar(255) NOT NULL UNIQUE,
 userPassword varchar(255) NOT NULL,
 hostOrMember ENUM('Host','Member') NOT NULL,
-hostID int);
+hostID int,
+primary key (userID));
 
 CREATE TABLE forgotPassword(
 userID int NOT NULL PRIMARY KEY,
