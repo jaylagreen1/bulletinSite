@@ -1,5 +1,6 @@
 USE bulletin;
 
+-- create table statements
 CREATE TABLE users(
 userID int NOT NULL auto_increment,
 firstName varchar(255) NOT NULL,
@@ -30,3 +31,39 @@ CREATE TABLE EventGroups(
     FOREIGN KEY (userID) REFERENCES users(userID),
     FOREIGN KEY (hostID) REFERENCES users(userID)
 );
+
+
+-- populate table statements
+INSERT INTO users (firstName, lastName, email, phoneNumber, username, userPassword, hostOrMember, hostID) VALUES
+('Hugh', 'Jass', 'hugh.jass@example.com', '123-456-7890', 'hughjass', 'password123', 'Member', NULL),
+('Al', 'Gorithm', 'al.gorithm@example.com', '123-456-7891', 'algomaster', 'securePass1', 'Host', 1),
+('Rick', "O'Shea", 'rick.oshea@example.com', '123-456-7892', 'ricochet', 'hunter2', 'Member', NULL),
+('Anita', 'Bath', 'anita.bath@example.com', '123-456-7893', 'anitab', 'passw0rd', 'Member', NULL),
+('Will', 'Power', 'will.power@example.com', '123-456-7894', 'willp', '123456', 'Host', 2),
+('Ima', 'Pancake', 'ima.pancake@example.com', '123-456-7895', 'fluffystack', 'ilovelamp', 'Member', NULL),
+('Chris', 'P. Bacon', 'chris.bacon@example.com', '123-456-7896', 'crispyb', 'pigsfly123', 'Host', 3),
+('Justin', 'Case', 'justin.case@example.com', '123-456-7897', 'justinc', 'helloWorld', 'Member', NULL),
+('Sue', 'Flay', 'sue.flay@example.com', '123-456-7898', 'chefmaster', 'cake4life', 'Member', NULL),
+('Barry', 'Cade', 'barry.cade@example.com', '123-456-7899', 'barricade', 'safehouse', 'Host', 4),
+('Ella', 'Vader', 'ella.vader@example.com', '123-456-7800', 'sithlord', 'darkside', 'Member', NULL),
+('Brooke', 'N. Arm', 'brooke.arm@example.com', '123-456-7801', 'brookenarm', 'armstrong', 'Member', NULL),
+('Joe', 'King', 'joe.king@example.com', '123-456-7802', 'jokerjoe', 'laughing1', 'Host', 5),
+('Paige', 'Turner', 'paige.turner@example.com', '123-456-7803', 'pageturn', 'readmore', 'Member', NULL),
+('Robin', 'Banks', 'robin.banks@example.com', '123-456-7804', 'bankrobber', 'moneybags', 'Member', NULL),
+('Sandy', 'Beach', 'sandy.beach@example.com', '123-456-7805', 'sbeach', 'surfsup', 'Host', 6),
+('Manny', 'Kinn', 'manny.kinn@example.com', '123-456-7806', 'mannequin', 'plastic1', 'Member', NULL),
+('Beau', 'Tye', 'beau.tye@example.com', '123-456-7807', 'bowtie', 'knots4days', 'Host', 7),
+('Holly', 'Wood', 'holly.wood@example.com', '123-456-7808', 'hwstar', 'bigscreen', 'Member', NULL),
+('Terry', 'Bull', 'terry.bull@example.com', '123-456-7809', 'terryb', 'unreal123', 'Member', NULL);
+
+INSERT INTO forgotPassword (userID, email, newPassword, resetID) VALUES
+(1, 'hugh.jass@example.com', 'newPass123', 'reset_1A2B3C4D'),
+(2, 'al.gorithm@example.com', 'secureNew1', 'reset_2B3C4D5E'),
+(3, 'rick.oshea@example.com', 'bounceBack1', 'reset_3C4D5E6F'),
+(4, 'anita.bath@example.com', 'bathTime2025', 'reset_4D5E6F7G'),
+(5, 'will.power@example.com', 'strongWill2', 'reset_5E6F7G8H'),
+(6, 'ima.pancake@example.com', 'fluffy2025', 'reset_6F7G8H9I'),
+(7, 'chris.bacon@example.com', 'crispNclear', 'reset_7G8H9I0J'),
+(8, 'justin.case@example.com', 'newCase123', 'reset_8H9I0J1K'),
+(9, 'sue.flay@example.com', 'flayPower1', 'reset_9I0J1K2L'),
+(10, 'barry.cade@example.com', 'cadeSecure', 'reset_0J1K2L3M');
