@@ -1,0 +1,53 @@
+/* Landing Page Styles */
+header {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 60px;
+    background-color: pink;
+  }
+  
+  /* Group Cards Section */
+  .scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .group-card {
+
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 4px 1px 1px 6px grey;
+    text-align: center;
+    min-width: 150px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .group-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .group-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .group-card p {
+    margin-top: 8px;
+    font-size: 1rem;
+  }
+  
