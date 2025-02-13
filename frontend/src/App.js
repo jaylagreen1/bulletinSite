@@ -1,8 +1,8 @@
 import './App.css'
 import {HashRouter as Router, Routes, Route} from 'react-router-dom'
 import  Home  from './pages/Home'
-import  Page1  from './pages/Page1'
-import  Page3  from './pages/Page3'
+import  Login  from './pages/Login.js'
+import  Signup  from './pages/Signup.js'
 import  Layout from './Layout.js'
 
 
@@ -13,8 +13,8 @@ function App(){
       <Routes>
         <Route element = {<Layout/>}>
           <Route path="/" element={<Home/>}/> {/* default route when site is loaded */}
-          <Route path="/Page1" element={<Page1/>}/> {/* http://localhost:3000/#/page1 */}
-          <Route path="/Page3" element={<Page3/>}/> {/* http://localhost:3000/#/page3 */}
+          <Route path="/Login" element={<Login/>}/> {/* http://localhost:3000/#/Login */}
+          <Route path="/Signup" element={<Signup/>}/> {/* http://localhost:3000/#/Signup */}
         </Route>
       </Routes>
     </Router>

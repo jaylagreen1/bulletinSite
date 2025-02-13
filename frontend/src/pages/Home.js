@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom"
+import styles from '../cssStyles/styles.module.css'
+
 
 function Home(){
     return(
         <>
-            <h1> this is home </h1>
+            <h1 className={styles.body}> this is home </h1>
             
         </>
     )
