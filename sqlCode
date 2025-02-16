@@ -40,27 +40,29 @@ PRIMARY KEY(userCalendarID));
 
 
 -- populate table statements
-INSERT INTO users (firstName, lastName, email, phoneNumber, username, userPassword, hostOrMember, hostID) VALUES
-('Hugh', 'Jass', 'hugh.jass@example.com', '123-456-7890', 'hughjass', 'password123', 'Member', NULL),
-('Al', 'Gorithm', 'al.gorithm@example.com', '123-456-7891', 'algomaster', 'securePass1', 'Host', 1),
-('Rick', "O'Shea", 'rick.oshea@example.com', '123-456-7892', 'ricochet', 'hunter2', 'Member', NULL),
-('Anita', 'Bath', 'anita.bath@example.com', '123-456-7893', 'anitab', 'passw0rd', 'Member', NULL),
-('Will', 'Power', 'will.power@example.com', '123-456-7894', 'willp', '123456', 'Host', 2),
-('Ima', 'Pancake', 'ima.pancake@example.com', '123-456-7895', 'fluffystack', 'ilovelamp', 'Member', NULL),
-('Chris', 'P. Bacon', 'chris.bacon@example.com', '123-456-7896', 'crispyb', 'pigsfly123', 'Host', 3),
-('Justin', 'Case', 'justin.case@example.com', '123-456-7897', 'justinc', 'helloWorld', 'Member', NULL),
-('Sue', 'Flay', 'sue.flay@example.com', '123-456-7898', 'chefmaster', 'cake4life', 'Member', NULL),
-('Barry', 'Cade', 'barry.cade@example.com', '123-456-7899', 'barricade', 'safehouse', 'Host', 4),
-('Ella', 'Vader', 'ella.vader@example.com', '123-456-7800', 'sithlord', 'darkside', 'Member', NULL),
-('Brooke', 'N. Arm', 'brooke.arm@example.com', '123-456-7801', 'brookenarm', 'armstrong', 'Member', NULL),
-('Joe', 'King', 'joe.king@example.com', '123-456-7802', 'jokerjoe', 'laughing1', 'Host', 5),
-('Paige', 'Turner', 'paige.turner@example.com', '123-456-7803', 'pageturn', 'readmore', 'Member', NULL),
-('Robin', 'Banks', 'robin.banks@example.com', '123-456-7804', 'bankrobber', 'moneybags', 'Member', NULL),
-('Sandy', 'Beach', 'sandy.beach@example.com', '123-456-7805', 'sbeach', 'surfsup', 'Host', 6),
-('Manny', 'Kinn', 'manny.kinn@example.com', '123-456-7806', 'mannequin', 'plastic1', 'Member', NULL),
-('Beau', 'Tye', 'beau.tye@example.com', '123-456-7807', 'bowtie', 'knots4days', 'Host', 7),
-('Holly', 'Wood', 'holly.wood@example.com', '123-456-7808', 'hwstar', 'bigscreen', 'Member', NULL),
-('Terry', 'Bull', 'terry.bull@example.com', '123-456-7809', 'terryb', 'unreal123', 'Member', NULL);
+INSERT INTO `users` (`firstName`, `lastName`, `email`, `phoneNumber`, `username`, `password_hash`, `userPassword`)
+VALUES
+('Alice', 'Johnson', 'alice.johnson@email.com', '1234567890', 'alicej', '$2b$10$XyZ12345SecretKey67890abc.qhgfd65EZ7r8Z6kYZD.KPGBpPTv09q', 'Password123'),
+('Bob', 'Smith', 'bob.smith@email.com', '1234567891', 'bobsmith', '$2b$10$XyZ12345SecretKey67890abc.DUiyPzjUEUO7Kq9HgD/.tMnPUoVHVm', 'SecurePass456'),
+('Charlie', 'Davis', 'charlie.davis@email.com', '1234567892', 'charlied', '$2b$10$XyZ12345SecretKey67890abc.VdKw6Y5q.8FRK7DYdV6hRYFL3a0D4', 'Charlie789'),
+('Dana', 'Evans', 'dana.evans@email.com', '1234567893', 'danae', '$2b$10$XyZ12345SecretKey67890abc.yHQRUbb/3ZFuHhLY5pSuCKtqPCeRdK', 'Dana!2024'),
+('Eve', 'Franklin', 'eve.franklin@email.com', '1234567894', 'evef', '$2b$10$XyZ12345SecretKey67890abc.wlpZkUQ5J2Y1sXWlGwWbf3FSz5F23u', 'EvePass888'),
+('Frank', 'Garcia', 'frank.garcia@email.com', '1234567895', 'frankg', '$2b$10$XyZ12345SecretKey67890abc.y8NklYc9O0bCJ3xJ7eJxlWgKg/1Q.V', 'Frank1234'),
+('Grace', 'Harris', 'grace.harris@email.com', '1234567896', 'graceh', '$2b$10$XyZ12345SecretKey67890abc.t8a9UNgD95TGTQbZPfA1E36N9yx.B6', 'Grace567'),
+('Henry', 'Iverson', 'henry.iverson@email.com', '1234567897', 'henryi', '$2b$10$XyZ12345SecretKey67890abc.JD1/G.VNqM4U9mFKn3EJbC1BD7gk.s', 'Henry_987'),
+('Ivy', 'Jackson', 'ivy.jackson@email.com', '1234567898', 'ivyj', '$2b$10$XyZ12345SecretKey67890abc.Wfsd6APlVKN6X/QzB5uIJq9GF65eLo', 'IvyPass432'),
+('Jack', 'King', 'jack.king@email.com', '1234567899', 'jackk', '$2b$10$XyZ12345SecretKey67890abc.L7YUg5B6Ld7Avr6p8N6RfuXg6cUuHL', 'Jack2025'),
+('Kara', 'Lopez', 'kara.lopez@email.com', '1234567800', 'karal', '$2b$10$XyZ12345SecretKey67890abc.6aUf3D2Pq/9YJv5mNqVfLP2o7uJ8f9', 'Kara!000'),
+('Leo', 'Martinez', 'leo.martinez@email.com', '1234567801', 'leom', '$2b$10$XyZ12345SecretKey67890abc.W5G/7J6jNqL8C6F5N1V8MkHg8zK5LJ', 'LeoLeo999'),
+('Mia', 'Nelson', 'mia.nelson@email.com', '1234567802', 'mian', '$2b$10$XyZ12345SecretKey67890abc.KL8N5P3L7NqQ6YV8MkHg9o7J6f8LJ5', 'MiaPass777'),
+('Noah', 'Owens', 'noah.owens@email.com', '1234567803', 'noaho', '$2b$10$XyZ12345SecretKey67890abc.8M5L7NqQ6V8P3K5Hg9o7LJ6f8KLN5V', 'Noah2023'),
+('Olivia', 'Perez', 'olivia.perez@email.com', '1234567804', 'oliviap', '$2b$10$XyZ12345SecretKey67890abc.P7K6L5N8V3Q9M5Hg7oJ6f8NL8L5V6Q', 'OliviaPass'),
+('Paul', 'Quinn', 'paul.quinn@email.com', '1234567805', 'paulq', '$2b$10$XyZ12345SecretKey67890abc.N6V5L7K8P3Q9M5HgJ6f8NL8L5V6Q7o', 'Paul12345'),
+('Quinn', 'Reed', 'quinn.reed@email.com', '1234567806', 'quinnr', '$2b$10$XyZ12345SecretKey67890abc.M5Hg7oN6V5L7K8P3Q9J6f8NL8L5V6Q', 'QuinnPass'),
+('Ryan', 'Smith', 'ryan.smith@email.com', '1234567807', 'ryans', '$2b$10$XyZ12345SecretKey67890abc.8NL8L5V6Q7oM5Hg7oN6V5L7K8P3Q9J', 'RyanSecure'),
+('Sophia', 'Taylor', 'sophia.taylor@email.com', '1234567808', 'sophiat', '$2b$10$XyZ12345SecretKey67890abc.6V5L7K8P3Q9M5HgJ6f8NL8L5V6Q7oN', 'Sophia987'),
+('Tom', 'Upton', 'tom.upton@email.com', '1234567809', 'tomu', '$2b$10$XyZ12345SecretKey67890abc.7oM5Hg7oN6V5L7K8P3Q9J6f8NL8L5V6', 'TomPass123');
+
 
 INSERT INTO forgotPassword (userID, email, newPassword, resetID) VALUES
 (1, 'hugh.jass@example.com', 'newPass123', 'reset_1A2B3C4D'),
