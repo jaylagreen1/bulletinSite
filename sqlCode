@@ -1,18 +1,34 @@
 USE bulletin;
 
 -- create table statements
-CREATE TABLE users(
-userID int NOT NULL auto_increment,
-firstName varchar(255) NOT NULL,
-lastName varchar(255) NOT NULL,
-email varchar(255) NOT NULL UNIQUE,
-phoneNumber varchar(255) UNIQUE,
-username varchar(255) NOT NULL UNIQUE,
-userPassword varchar(255) NOT NULL,
-hostOrMember ENUM('Host','Member') NOT NULL,
-hostID int,
-primary key (userID));
+CREATE TABLE `users` (
+  `userID` int NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phoneNumber` varchar(255) DEFAULT NULL,
+  `username` varchar(255) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `userPassword` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`userID`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `phoneNumber` (`phoneNumber`)
+)
 
+CREATE TABLE `login_attempts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `userID` int DEFAULT NULL,
+  `username_attempt` varchar(50) NOT NULL,
+  `success` tinyint(1) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `user_agent` text,
+  `attempt_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  CONSTRAINT `login_attempts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL
+) 
 CREATE TABLE forgotPassword(
 userID int NOT NULL PRIMARY KEY,
 email varchar(255) NOT NULL UNIQUE,
@@ -76,25 +92,27 @@ INSERT INTO forgotPassword (userID, email, newPassword, resetID) VALUES
 (9, 'sue.flay@example.com', 'flayPower1', 'reset_9I0J1K2L'),
 (10, 'barry.cade@example.com', 'cadeSecure', 'reset_0J1K2L3M');
 
-INSERT INTO userCalendar (userID) VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10),
-(11),
-(12),
-(13),
-(14),
-(15),
-(16),
-(17),
-(18),
-(19),
-(20);
+INSERT INTO `login_attempts` (`userID`, `username_attempt`, `success`, `ip_address`, `user_agent`)
+VALUES
+(1, 'alicej', 1, '192.168.1.10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
+(2, 'bobsmith', 0, '192.168.1.11', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'),
+(3, 'charlied', 1, '192.168.1.12', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64)'),
+(4, 'danae', 0, '192.168.1.13', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
+(5, 'evef', 1, '192.168.1.14', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'),
+(6, 'frankg', 1, '192.168.1.15', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64)'),
+(7, 'graceh', 0, '192.168.1.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
+(8, 'henryi', 1, '192.168.1.17', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'),
+(9, 'ivyj', 0, '192.168.1.18', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64)'),
+(10, 'jackk', 1, '192.168.1.19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
+(11, 'karal', 0, '192.168.1.20', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'),
+(12, 'leom', 1, '192.168.1.21', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64)'),
+(13, 'mian', 1, '192.168.1.22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
+(14, 'noaho', 0, '192.168.1.23', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'),
+(15, 'oliviap', 1, '192.168.1.24', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64)'),
+(16, 'paulq', 0, '192.168.1.25', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
+(17, 'quinnr', 1, '192.168.1.26', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'),
+(18, 'ryans', 0, '192.168.1.27', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64)'),
+(19, 'sophiat', 1, '192.168.1.28', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
+(20, 'tomu', 1, '192.168.1.29', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)');
+
 
