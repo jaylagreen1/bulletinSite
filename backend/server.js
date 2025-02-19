@@ -75,7 +75,38 @@ app.post('/Login', async (req, res) => {
     }
 });
 
+app.get("/Search", async (req, res) => {
+    const {query} = req.body;
 
+    try {
+        if (!query) return res.status(400).json({ error: "Search query required"});
+
+        const [users] = await pool.query("SELECT userID, username FROM users WHERE username = ?", [query]);
+        const [groups] = await pool.query("SELECT groupID, groupName FROM groups WHERE groupName = ?", [query]);
+
+        console.log("Search results:", {users, groups });
+
+        res.json({ users, groups});
+    } catch (error) {
+        console.error("Search error:", error);
+        res.status(500).json({ error: "Internal server error"});
+    }
+});
+
+/*app.post("/MyProfile", async(req,res) => {
+    try{
+        const {username,bio} = req.body
+
+        if (!username || !bio) {
+            return res.status(400).json({ error: 'All fields are required'});
+        }
+        
+
+    }
+    catch (error){
+        console.error('Server error:', error);
+    }
+})*/
 
 const PORT = process.env.PORT || 8800 //backend routing port
 app.listen(PORT,() => {

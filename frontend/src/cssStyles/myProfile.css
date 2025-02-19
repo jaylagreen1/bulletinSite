@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 5px;
+    padding: 5px;
+    background-color: #f2f2f2;
+}
+
+.settings {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#settings-btn {
+    background-color: #cccccc;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#settings-btn:hover {
+    background-color: #999999;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin: 60px auto;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+#profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+}
+
+.profile-info {
+    margin-right: 40px;
+    flex: 1;
+}
+
+.profile-card h2 {
+    margin: 0;
+    font-size: 32px;
+    color: #1c1c1c;
+}
+
+.profile-card p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #121212;
+    max-width: 300px;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 2;
+    min-width: 300px;
+    margin-left: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    margin: 0 20px;
+}
+
+.stat-item h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #1c1c1c;
+}
+
+.stat-item p {
+    margin: 5px 0 0;
+    font-size: 18px;
+    color: #121212;
+    font-weight: bold;
+}
+
+.groups-feed {
+    padding: 20px;
+    margin: 40px auto;
+    background-color: #dedede;
+    border-radius: 10px;
+}
+
+.groups-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #121212;
+}
+
+.group-item p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #1c1c1c;
+}

@@ -14,6 +14,15 @@ export function NavBar(){
             <Link to= "/Signup">
                 <button > Signup</button> 
             </Link>
+            <Link to="/MyProfile">
+                <button>My Profile</button>
+            </Link>
+            <Link to="/Settings">
+                <button>Settings</button>
+            </Link>
+            <Link to="/Search">
+                <button>Search</button>
+            </Link>
         
         </div>
     )

@@ -15,7 +15,14 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `phoneNumber` (`phoneNumber`)
-)
+);
+
+CREATE TABLE `groups` (
+	groupID INT NOT NULL AUTO_INCREMENT,
+	groupName VARCHAR(255) NOT NULL,
+	description varchar(300),
+	PRIMARY KEY (`groupID`)
+);
 
 CREATE TABLE `login_attempts` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -28,7 +35,8 @@ CREATE TABLE `login_attempts` (
   PRIMARY KEY (`id`),
   KEY `userID` (`userID`),
   CONSTRAINT `login_attempts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL
-) 
+);
+
 CREATE TABLE forgotPassword(
 userID int NOT NULL PRIMARY KEY,
 email varchar(255) NOT NULL UNIQUE,
@@ -53,6 +61,13 @@ userCalendarID INT NOT NULL AUTO_INCREMENT,
 userID INT NOT NULL,
 FOREIGN KEY (userID) REFERENCES users(userID),
 PRIMARY KEY(userCalendarID));
+
+CREATE TABLE myProfile(
+`username` varchar(255) NOT NULL PRIMARY KEY,
+followerCount INT,
+followingCount INT,
+groupCount INT,
+FOREIGN KEY (username) REFERENCES users(username));
 
 
 -- populate table statements
@@ -115,4 +130,25 @@ VALUES
 (19, 'sophiat', 1, '192.168.1.28', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'),
 (20, 'tomu', 1, '192.168.1.29', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)');
 
+INSERT INTO `groups` (`groupName`, `description`) VALUES
+('Tech Enthusiasts', 'A group for people passionate about technology and innovation.'),
+('Fitness Warriors', 'Join us to stay motivated and achieve your fitness goals!'),
+('Book Lovers', 'A community for bookworms to share and discuss their favorite reads.'),
+('Gamers United', 'For all gamers who love discussing and playing video games.'),
+('Foodies Club', 'A group for those who enjoy trying new foods and sharing recipes.'),
+('Photography Hub', 'A place to share and learn photography techniques.'),
+('Music Vibes', 'For music lovers to explore and share their favorite tunes.'),
+('Travel Explorers', 'A group for travelers to share experiences and tips.'),
+('Movie Buffs', 'Discuss and recommend your favorite movies and TV shows.'),
+('Coding Community', 'A group for programmers and developers to share knowledge.'),
+('Entrepreneurs Hub', 'For aspiring and established entrepreneurs to network.'),
+('Pet Lovers', 'A space for pet owners to share tips and pet stories.'),
+('Mental Wellness', 'A supportive group for mental health awareness and discussions.'),
+('DIY & Crafts', 'A creative space for DIY projects and craft ideas.'),
+('Sports Fanatics', 'Discuss and follow your favorite sports and teams.'),
+('Anime & Manga', 'For anime and manga fans to discuss their favorite series.'),
+('Science Geeks', 'A group for science lovers to discuss discoveries and theories.'),
+('Car Enthusiasts', 'For people who love cars, modifications, and racing.'),
+('Investing & Stocks', 'A group for discussions on investing, stocks, and finance.'),
+('Parenting Support', 'For parents to share experiences, tips, and advice.');
 
