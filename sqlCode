@@ -69,6 +69,12 @@ followingCount INT,
 groupCount INT,
 FOREIGN KEY (username) REFERENCES users(username));
 
+CREATE TABLE profilePicTable (
+userID INT,
+PRIMARY KEY (userID),
+FOREIGN KEY (userID) REFERENCES users (userID),
+profilePic MEDIUMBLOB);
+
 
 -- populate table statements
 INSERT INTO `users` (`firstName`, `lastName`, `email`, `phoneNumber`, `username`, `password_hash`, `userPassword`)

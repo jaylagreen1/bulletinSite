@@ -4,6 +4,8 @@ const cors = require('cors')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const pool = require('./config/database');
+const multer = require("multer");
+const upload = multer({ dest: 'uploads/' })
 
 const app = express()
 app.use(cors())
@@ -75,7 +77,11 @@ app.post('/Login', async (req, res) => {
     }
 });
 
-app.get("/Search", async (req, res) => {
+app.post('/upload', upload.single('image'), (req, res) => {
+    console.log(req.file);
+})
+
+/*app.get("/Search", async (req, res) => {
     const {query} = req.body;
 
     try {
@@ -93,7 +99,7 @@ app.get("/Search", async (req, res) => {
     }
 });
 
-/*app.post("/MyProfile", async(req,res) => {
+app.post("/MyProfile", async(req,res) => {
     try{
         const {username,bio} = req.body
 
