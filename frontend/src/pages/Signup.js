@@ -53,41 +53,44 @@ function Signup() {
 
   return (
     <div>
-        <h3>signUp</h3>
-        <p>what up </p>
+      <div className='auth'> 
+        <h1>Sign Up!</h1>
         <form onSubmit={handleSubmit}>
         
 
-        <label htmlFor='firstName'> firstName</label>
-        <input id='firstName' type='text' onChange={(e) => setFirstName(e.target.value)} />
+        <label htmlFor='firstName'> First Name </label>
+        <input id='firstName' type='text' onChange={(e) => setFirstName(e.target.value)} />  <br />  <br />
         
         
 
-        <label htmlFor='lastName'> lastName</label>
-        <input id='lastName' type='text' onChange={(e) => setLastName(e.target.value)} />
+        <label htmlFor='lastName'> Last Name </label>
+        <input id='lastName' type='text' onChange={(e) => setLastName(e.target.value)} />  <br /> <br />
         
 
-        <label htmlFor='email'> email</label>
-        <input id='email' type='email' onChange={(e) => setEmail(e.target.value)} />
+        <label htmlFor='email'> Email </label>
+        <input id='email' type='email' onChange={(e) => setEmail(e.target.value)} />  <br /> <br />
         
 
-        <label htmlFor='phoneNumber'> phoneNumber</label>
-        <input id='phoneNumber' type='tel' onChange={(e) => setPhoneNumber(e.target.value)} />
+        <label htmlFor='phoneNumber'> Phone Number </label>
+        <input id='phoneNumber' type='tel' onChange={(e) => setPhoneNumber(e.target.value)} /> <br /> <br />
         
 
-        <label htmlFor='username'> Username</label>
-        <input id='username' type='text' onChange={(e) => setUsername(e.target.value)} />
+        <label htmlFor='username'> Username </label>
+        <input id='username' type='text' onChange={(e) => setUsername(e.target.value)} /> <br /> <br />
         
 
-        <label htmlFor='userPassword'> userPassword</label>
-        <input id='userPassword' type='password' onChange={(e) => setUserPassword(e.target.value)} />
+        <label htmlFor='userPassword'> Password </label>
+        <input id='userPassword' type='password' onChange={(e) => setUserPassword(e.target.value)} /> <br /> <br />
         
         <div>
-          <button type='button' onClick={()=> alert('Cancelled')}> Cancel</button>
-          <button type='submit'> Submit</button>
+          <button type='button' onClick={()=> alert('Cancelled')}> Cancel </button>
+          <button type='submit'> Submit </button>
         </div>
+        {/* <span> Have an account? <Link to='/Login> Login </Link></span>} */}
+        
     </form>
     </div> 
+    </div>
     
     
   )

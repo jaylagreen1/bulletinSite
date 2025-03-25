@@ -1,0 +1,124 @@
+//import './App.css'
+//import {HashRouter as Router, Routes, Route} from 'react-router-dom'
+import  Home  from './pages/Home'
+import  Login  from './pages/Login.js'
+import  Signup  from './pages/Signup.js'
+//import  Layout from './Layout.js'
+import React from 'react'
+import ForgotPassword from './pages/ForgotPassword.js'
+//import ResetPassword from './pages/ResetPassword.js' 
+import NavigationBar from './components/NavigationBar.js'
+import Footer from './components/Footer.js'
+import './styles.scss'
+import {
+  createBrowserRouter,
+  RouterProvider, Outlet
+} from "react-router-dom";
+//import { NavigationBar } from "./components/NavigationBar";
+
+{/*function Layout(){
+    return(
+        <>
+            <NavigationBar/>
+            <main>
+                <Outlet/>
+            </main>
+        </>
+    )
+}
+
+export default Layout */}
+//import Layout from './Layout.js'
+
+const Layout = () => {
+  return(
+    <> 
+    <NavigationBar />
+    <Outlet />
+    <Footer />
+    </>
+  );
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children:[
+      {
+        path:"/",
+        /*element: <div>This is home!</div>*/
+        element:<Home />
+      }
+      /*
+      {
+        path:"/Post/:id",
+        element:<Single/>
+      },
+      {
+        path:"/Write",
+        element:<Write/>
+      },
+      */
+    ]
+  },
+  {
+    path: "/Login",
+    element: <Login />,
+  },
+  {
+    path: "/Signup",
+    element: <Signup />,
+  },
+  {
+    path: "/ForgotPassword",
+    element: <ForgotPassword />,
+  },
+]);
+function App(){
+  return(
+    <div className='app'>
+      <h1>React is working!</h1> {/* ✅ Debugging message */}
+      <div className='container'>
+        <RouterProvider router={router}/>
+      </div>
+    </div>
+  )
+}
+export default App;
+
+
+/*
+function App(){
+  return(
+    <div className='app'>
+      <div className='container'>
+        <RouterProvider router={router}/>
+    </div>
+    </div>
+  )
+}
+export default App;
+
+
+  
+  return (
+    <Router>
+      <Routes>
+        <Route element = {<Layout/>}>
+          <Route path="/" element={<Home/>}/> 
+          <Route path="/Login" element={<Login/>}/> 
+          <Route path="/Signup" element={<Signup/>}/> 
+          <Route path="/ForgotPassword" element={<ForgotPassword/>} />
+          <Route path="/ResetPassword" element={<ResetPassword/>} />
+        </Route>
+      </Routes>
+    </Router>
+  ) */
+
+
+
+
+
+
+

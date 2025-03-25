@@ -38,6 +38,31 @@ userID INT NOT NULL,
 FOREIGN KEY (userID) REFERENCES users(userID),
 PRIMARY KEY(userCalendarID));
 
+CREATE TABLE ResetPasswordToken (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    Token_value VARCHAR(350) NOT NULL,
+    created_at datetime  NOT NULL ,
+    expired_at datetime  NOT NULL,
+    used INT NOT NULL default "0",
+    inserted_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES users(userID));
+
+CREATE TABLE `bulletin`.`posts` (
+  `id` INT NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `desc` VARCHAR(1000) NOT NULL,
+  `img` VARCHAR(255) NOT NULL,
+  `date` DATETIME NOT NULL,
+  `userID` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `userID`
+    FOREIGN KEY (`id`)
+    REFERENCES `bulletin`.`users` (`userID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
 
 -- populate table statements
 INSERT INTO users (firstName, lastName, email, phoneNumber, username, userPassword, hostOrMember, hostID) VALUES
